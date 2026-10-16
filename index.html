@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kuis Interaktif Bahasa Inggris - Analytical Exposition (B2)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom scrollbar for mobile text container */
+        .text-scroll::-webkit-scrollbar {
+            width: 5px;
+        }
+        .text-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .text-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .text-scroll::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Bar / Navbar -->
+    <header class="bg-slate-900 text-white shadow-md sticky top-0 z-30 border-b border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white shadow-sm">
+                    <i class="fa-solid fa-graduation-cap text-sm"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm font-bold leading-tight">English Quiz B2</h1>
+                    <p class="text-[10px] text-slate-400">Analytical Exposition Text</p>
+                </div>
+            </div>
+            
+            <!-- Mandatory Watermark @nastarabdullah -->
+            <div class="flex items-center space-x-2 bg-slate-800/80 px-2.5 py-1 rounded-full border border-slate-700">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-xs font-semibold text-indigo-300 tracking-wide">@nastarabdullah</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-4xl w-full mx-auto p-4 flex flex-col justify-center">
+
+        <!-- SCREEN 1: LOGIN / START PAGE -->
+        <section id="screen-login" class="w-full max-w-md mx-auto my-auto py-6">
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200/80 overflow-hidden">
+                <div class="bg-gradient-to-br from-indigo-700 via-indigo-600 to-indigo-900 p-6 text-white text-center relative">
+                    <div class="absolute top-2 right-2 text-indigo-200 text-[10px] font-mono opacity-80">
+                        @nastarabdullah
+                    </div>
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-3 backdrop-blur-md border border-white/20">
+                        <i class="fa-solid fa-book-open-reader text-3xl text-indigo-200"></i>
+                    </div>
+                    <h2 class="text-2xl font-extrabold tracking-tight">Kuis Bahasa Inggris</h2>
+                    <p class="text-xs text-indigo-200 mt-1 font-medium">Analytical Exposition Text • Level B2 (20 Soal)</p>
+                </div>
+
+                <div class="p-6 space-y-5">
+                    <form id="form-login" onsubmit="event.preventDefault(); startQuiz();" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Nama Lengkap Peserta</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                                    <i class="fa-regular fa-user"></i>
+                                </span>
+                                <input type="text" id="input-nama" required placeholder="Masukkan nama Anda..." class="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1">Kelas</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="kelas" value="XI-1" checked class="peer sr-only">
+                                    <div class="p-3 text-center rounded-xl border border-slate-200 bg-slate-50 peer-checked:bg-indigo-50 peer-checked:border-indigo-600 peer-checked:text-indigo-700 font-bold text-sm transition-all shadow-sm">
+                                        XI-1
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="kelas" value="XI-2" class="peer sr-only">
+                                    <div class="p-3 text-center rounded-xl border border-slate-200 bg-slate-50 peer-checked:bg-indigo-50 peer-checked:border-indigo-600 peer-checked:text-indigo-700 font-bold text-sm transition-all shadow-sm">
+                                        XI-2
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-3 text-xs text-indigo-900 space-y-1">
+                            <div class="font-bold flex items-center space-x-1">
+                                <i class="fa-solid fa-circle-info text-indigo-600"></i>
+                                <span>Informasi Kuis:</span>
+                            </div>
+                            <ul class="list-disc list-inside space-y-0.5 text-indigo-800 text-[11px]">
+                                <li>20 Butir Soal (Pilihan Ganda, PG Kompleks & Benar/Salah)</li>
+                                <li>Durasi waktu dihitung otomatis</li>
+                                <li>Setiap teks berlaku untuk 4 butir soal</li>
+                            </ul>
+                        </div>
+
+                        <button type="submit" class="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-bold rounded-xl shadow-lg shadow-indigo-500/30 transition-all flex items-center justify-center space-x-2 text-sm">
+                            <span>Mulai Kerjakan Kuis</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </form>
+
+                    <div class="pt-4 border-t border-slate-100 text-center">
+                        <button onclick="openAdminModal()" class="text-xs font-semibold text-slate-500 hover:text-indigo-600 transition-colors inline-flex items-center space-x-1">
+                            <i class="fa-solid fa-user-shield"></i>
+                            <span>Login Akses Admin</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCREEN 2: QUIZ PAGE -->
+        <section id="screen-quiz" class="hidden w-full py-2 space-y-4">
+            
+            <!-- Quiz Info & Timer Header Bar -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-3.5 flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-lg text-xs font-bold border border-indigo-200" id="quiz-student-info">
+                        Nama - Kelas
+                    </div>
+                    <span class="text-xs font-semibold text-slate-500" id="quiz-progress-text">Soal 1 dari 20</span>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-1.5 bg-slate-900 text-amber-400 px-3 py-1 rounded-lg font-mono text-xs font-bold border border-slate-800 shadow-inner">
+                        <i class="fa-regular fa-clock animate-spin-slow"></i>
+                        <span id="quiz-timer">00:00</span>
+                    </div>
+                    <button onclick="openQuestionPalette()" class="p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold transition-all" title="Daftar Soal">
+                        <i class="fa-solid fa-grip"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+                <div id="quiz-progress-bar" class="bg-indigo-600 h-full w-0 transition-all duration-300"></div>
+            </div>
+
+            <!-- Main Layout: Reading Text + Question Card -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+                
+                <!-- Reading Text Column (Collapsible on Mobile) -->
+                <div class="lg:col-span-5 bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col overflow-hidden">
+                    <div class="bg-slate-100 px-4 py-2.5 border-b border-slate-200 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-file-lines text-indigo-600 text-sm"></i>
+                            <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider" id="text-title-header">Reading Text</h3>
+                        </div>
+                        <span class="text-[10px] bg-indigo-50 text-indigo-700 font-bold px-2 py-0.5 rounded-full border border-indigo-200" id="text-badge">Teks 1</span>
+                    </div>
+                    <div class="p-4 text-xs leading-relaxed text-slate-700 text-scroll max-h-[220px] lg:max-h-[500px] overflow-y-auto space-y-3 bg-slate-50/50" id="passage-container">
+                        <!-- Reading passage will be injected here -->
+                    </div>
+                </div>
+
+                <!-- Question Column -->
+                <div class="lg:col-span-7 bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-5 flex flex-col justify-between">
+                    
+                    <div>
+                        <!-- Type indicator badge -->
+                        <div class="flex items-center justify-between mb-3">
+                            <span id="question-type-badge" class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                                Pilihan Ganda
+                            </span>
+                            <span class="text-[10px] text-slate-400 font-mono">ID: Q<span id="question-number-badge">1</span></span>
+                        </div>
+
+                        <!-- Question Prompt -->
+                        <div id="question-prompt" class="text-sm sm:text-base font-semibold text-slate-900 mb-4 leading-snug">
+                            <!-- Question prompt text -->
+                        </div>
+
+                        <!-- Question Options Container -->
+                        <div id="options-container" class="space-y-2.5 mb-6">
+                            <!-- Dynamic Options Rendered Here -->
+                        </div>
+                    </div>
+
+                    <!-- Navigation Footer -->
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                        <button id="btn-prev" onclick="navigateQuestion(-1)" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center space-x-1">
+                            <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                            <span>Sebelumnya</span>
+                        </button>
+
+                        <button id="btn-next" onclick="navigateQuestion(1)" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow-md shadow-indigo-500/20 transition-all flex items-center space-x-1">
+                            <span>Selanjutnya</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+
+                        <button id="btn-submit-quiz" onclick="confirmSubmitQuiz()" class="hidden px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-md shadow-emerald-600/20 transition-all flex items-center space-x-1">
+                            <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                            <span>Selesai & Kirim</span>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SCREEN 3: RESULT PAGE -->
+        <section id="screen-result" class="hidden w-full max-w-2xl mx-auto py-6 space-y-5">
+            
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+                <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-6 text-white text-center relative">
+                    <div class="absolute top-2 right-3 text-indigo-300 text-[10px] font-mono">
+                        @nastarabdullah
+                    </div>
+                    <div class="inline-block p-3 rounded-full bg-emerald-500/20 text-emerald-400 mb-2 border border-emerald-500/30">
+                        <i class="fa-solid fa-circle-check text-3xl"></i>
+                    </div>
+                    <h2 class="text-xl font-bold">Hasil Kuis Selesai!</h2>
+                    <p class="text-xs text-slate-300 mt-0.5" id="result-student-name">Nama Peserta • Kelas XI-1</p>
+                </div>
+
+                <div class="p-6 space-y-6">
+                    
+                    <!-- Score Big Banner -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-center flex flex-col items-center justify-center">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Nilai Akhir Anda</span>
+                        <div class="text-5xl font-extrabold text-indigo-600 font-mono tracking-tight" id="result-score-val">0</div>
+                        <div class="mt-2 text-xs font-semibold px-3 py-1 rounded-full" id="result-badge-eval">
+                            Evaluasi Performa
+                        </div>
+                    </div>
+
+                    <!-- Statistics Grid -->
+                    <div class="grid grid-cols-3 gap-3 text-center">
+                        <div class="p-3 bg-emerald-50 border border-emerald-100 rounded-xl">
+                            <i class="fa-solid fa-check text-emerald-600 mb-1"></i>
+                            <div class="text-lg font-bold text-emerald-700" id="result-correct-cnt">0</div>
+                            <div class="text-[10px] text-emerald-800 font-medium">Total Benar</div>
+                        </div>
+
+                        <div class="p-3 bg-rose-50 border border-rose-100 rounded-xl">
+                            <i class="fa-solid fa-xmark text-rose-600 mb-1"></i>
+                            <div class="text-lg font-bold text-rose-700" id="result-wrong-cnt">0</div>
+                            <div class="text-[10px] text-rose-800 font-medium">Total Salah</div>
+                        </div>
+
+                        <div class="p-3 bg-indigo-50 border border-indigo-100 rounded-xl">
+                            <i class="fa-regular fa-clock text-indigo-600 mb-1"></i>
+                            <div class="text-sm font-bold text-indigo-700 mt-1 font-mono" id="result-duration-str">00:00</div>
+                            <div class="text-[10px] text-indigo-800 font-medium">Durasi Waktu</div>
+                        </div>
+                    </div>
+
+                    <!-- Cloud Sync Alert -->
+                    <div id="firestore-sync-status" class="flex items-center space-x-2 text-xs bg-slate-100 p-3 rounded-xl border border-slate-200 text-slate-600">
+                        <i class="fa-solid fa-cloud-arrow-up text-indigo-600 animate-pulse"></i>
+                        <span>Menyimpan nilai secara otomatis ke database guru...</span>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button onclick="toggleAnswerReview()" class="flex-1 py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs transition-all flex items-center justify-center space-x-1.5">
+                            <i class="fa-solid fa-eye"></i>
+                            <span>Lihat Pembahasan Soal</span>
+                        </button>
+
+                        <button onclick="resetToLogin()" class="flex-1 py-2.5 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-xs transition-all flex items-center justify-center space-x-1.5 shadow-md shadow-indigo-500/20">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <span>Kembali ke Halaman Depan</span>
+                        </button>
+                    </div>
+
+                    <!-- Review Answers Accordion -->
+                    <div id="answer-review-container" class="hidden space-y-4 pt-4 border-t border-slate-200">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center justify-between">
+                            <span>Pembahasan & Kunci Jawaban</span>
+                            <span class="text-[10px] text-slate-400 font-normal">20 Soal</span>
+                        </h4>
+                        <div id="review-items-list" class="space-y-3">
+                            <!-- Dynamic review list -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SCREEN 4: ADMIN DASHBOARD PAGE -->
+        <section id="screen-admin" class="hidden w-full py-4 space-y-5">
+            
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+                <!-- Admin Header -->
+                <div class="bg-slate-900 text-white p-5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-800">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center font-bold text-white shadow-md">
+                            <i class="fa-solid fa-user-gear text-lg"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-base font-bold">Panel Admin / Guru</h2>
+                            <p class="text-xs text-indigo-300">Rekapitulasi Nilai Kuis Real-Time • @nastarabdullah</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-2">
+                        <button onclick="refreshAdminData()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition-all flex items-center space-x-1">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                            <span>Segarkan</span>
+                        </button>
+                        <button onclick="logoutAdmin()" class="px-3 py-1.5 bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold rounded-lg transition-all flex items-center space-x-1 shadow-sm">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span>Keluar Admin</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="p-5 space-y-5">
+                    
+                    <!-- Analytics Metrics Bar -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Total Peserta</span>
+                            <span class="text-2xl font-extrabold text-slate-800 font-mono" id="admin-stat-total">0</span>
+                        </div>
+                        <div class="bg-indigo-50 border border-indigo-100 p-3 rounded-xl">
+                            <span class="text-[10px] font-bold text-indigo-500 uppercase tracking-wider block">Rata-rata Nilai</span>
+                            <span class="text-2xl font-extrabold text-indigo-700 font-mono" id="admin-stat-avg">0</span>
+                        </div>
+                        <div class="bg-emerald-50 border border-emerald-100 p-3 rounded-xl">
+                            <span class="text-[10px] font-bold text-emerald-500 uppercase tracking-wider block">Nilai Tertinggi</span>
+                            <span class="text-2xl font-extrabold text-emerald-700 font-mono" id="admin-stat-high">0</span>
+                        </div>
+                        <div class="bg-amber-50 border border-amber-100 p-3 rounded-xl">
+                            <span class="text-[10px] font-bold text-amber-600 uppercase tracking-wider block">Peserta XI-1 / XI-2</span>
+                            <span class="text-sm font-bold text-amber-800 font-mono mt-1 block" id="admin-stat-classes">0 / 0</span>
+                        </div>
+                    </div>
+
+                    <!-- Search & Filter Controls -->
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+                        <div class="relative w-full sm:w-64">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400 text-xs">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </span>
+                            <input type="text" id="admin-search-input" onkeyup="filterAdminTable()" placeholder="Cari nama peserta..." class="w-full pl-8 pr-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+
+                        <div class="flex items-center space-x-2 w-full sm:w-auto">
+                            <select id="admin-filter-class" onchange="filterAdminTable()" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-1.5 focus:ring-indigo-500">
+                                <option value="ALL">Semua Kelas</option>
+                                <option value="XI-1">Kelas XI-1</option>
+                                <option value="XI-2">Kelas XI-2</option>
+                            </select>
+
+                            <button onclick="exportToCSV()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition-all flex items-center space-x-1 shadow-sm ml-auto">
+                                <i class="fa-solid fa-file-excel"></i>
+                                <span>Unduh CSV</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Table of Submissions -->
+                    <div class="border border-slate-200 rounded-xl overflow-x-auto bg-white">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-slate-100 text-slate-600 font-bold uppercase tracking-wider text-[10px] border-b border-slate-200">
+                                <tr>
+                                    <th class="p-3">No</th>
+                                    <th class="p-3">Nama Peserta</th>
+                                    <th class="p-3">Kelas</th>
+                                    <th class="p-3">Nilai</th>
+                                    <th class="p-3">Benar / Salah</th>
+                                    <th class="p-3">Durasi</th>
+                                    <th class="p-3">Waktu Selesai</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-table-body" class="divide-y divide-slate-100 font-medium">
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                        <div id="admin-empty-state" class="p-8 text-center text-slate-400 text-xs hidden">
+                            <i class="fa-regular fa-folder-open text-2xl mb-2 text-slate-300"></i>
+                            <p>Belum ada data pengerjaan kuis dari peserta.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-center py-3 text-[11px] border-t border-slate-800">
+        <p>© 2026 Interactive English Assessment • Created by <span class="text-indigo-300 font-semibold">@nastarabdullah</span></p>
+    </footer>
+
+    <!-- MODAL: ADMIN LOGIN -->
+    <div id="modal-admin-login" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-sm overflow-hidden animate-fade-in">
+            <div class="bg-slate-900 text-white p-4 flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-lock text-indigo-400"></i>
+                    <h3 class="text-sm font-bold">Login Akses Admin</h3>
+                </div>
+                <button onclick="closeAdminModal()" class="text-slate-400 hover:text-white text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form onsubmit="event.preventDefault(); handleAdminAuth();" class="p-5 space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Username Admin</label>
+                    <input type="text" id="admin-username" required placeholder="nastarabdullah" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Password</label>
+                    <input type="password" id="admin-password" required placeholder="••••••••" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+
+                <div id="admin-auth-error" class="hidden text-xs text-rose-600 bg-rose-50 border border-rose-200 p-2 rounded-lg text-center font-medium">
+                    Username atau Password salah!
+                </div>
+
+                <div class="pt-2 flex justify-end space-x-2">
+                    <button type="button" onclick="closeAdminModal()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg text-xs">
+                        Batal
+                    </button>
+                    <button type="submit" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg text-xs shadow-md shadow-indigo-500/20">
+                        Masuk Admin
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: QUESTION PALETTE -->
+    <div id="modal-palette" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-md overflow-hidden">
+            <div class="bg-slate-100 p-3 px-4 border-b border-slate-200 flex items-center justify-between">
+                <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Navigasi Soal Kuis</h3>
+                <button onclick="closeQuestionPalette()" class="text-slate-400 hover:text-slate-600">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="p-4 space-y-4">
+                <div class="grid grid-cols-5 gap-2" id="palette-grid">
+                    <!-- Dynamic Question Buttons -->
+                </div>
+
+                <div class="text-[11px] text-slate-500 flex items-center justify-around pt-2 border-t border-slate-100">
+                    <div class="flex items-center space-x-1.5">
+                        <span class="w-3 h-3 rounded bg-indigo-600 inline-block"></span>
+                        <span>Dijawab</span>
+                    </div>
+                    <div class="flex items-center space-x-1.5">
+                        <span class="w-3 h-3 rounded bg-slate-200 border border-slate-300 inline-block"></span>
+                        <span>Belum</span>
+                    </div>
+                    <div class="flex items-center space-x-1.5">
+                        <span class="w-3 h-3 rounded bg-amber-400 inline-block"></span>
+                        <span>Aktif</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Imports Module -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Firebase Configuration setup with global variables or fallback
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'analytical-exposition-quiz-nastarabdullah';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+            apiKey: "AIzaSyDummyKeyForFallbackPurpose12345",
+            authDomain: "quiz-app.firebaseapp.com",
+            projectId: "quiz-app-project",
+            storageBucket: "quiz-app.appspot.com",
+            messagingSenderId: "1234567890",
+            appId: "1:1234567890:web:abcdef123456"
+        };
+
+        let db = null;
+        let auth = null;
+        let currentUser = null;
+
+        try {
+            const app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+
+            // Authentication Rule 3
+            const initialToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+            if (initialToken) {
+                signInWithCustomToken(auth, initialToken).catch(() => signInAnonymously(auth));
+            } else {
+                signInAnonymously(auth).catch(err => console.warn("Anon auth fallback:", err));
+            }
+
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    currentUser = user;
+                    console.log("Firebase Auth Ready. User UID:", user.uid);
+                    // Bind listener for admin if active
+                    if (window.isAdminActive) {
+                        window.subscribeAdminData();
+                    }
+                }
+            });
+        } catch (e) {
+            console.warn("Firebase initialized in local mode:", e);
+        }
+
+        // Global function to save result to Firestore
+        window.saveResultToFirestore = async function(resultObj) {
+            const syncEl = document.getElementById('firestore-sync-status');
+            if (!db || !currentUser) {
+                if (syncEl) {
+                    syncEl.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600"></i><span>Hasil tersimpan secara lokal di sesi ini.</span>`;
+                }
+                window.storeLocalResult(resultObj);
+                return;
+            }
+
+            try {
+                // Rule 1: STRICT PATH for public shared data across devices
+                const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'student_quiz_results');
+                await addDoc(colRef, {
+                    ...resultObj,
+                    userId: currentUser.uid,
+                    createdAt: new Date().toISOString()
+                });
+
+                if (syncEl) {
+                    syncEl.innerHTML = `<i class="fa-solid fa-cloud-check text-emerald-600"></i><span class="text-emerald-700 font-semibold">Tersimpan secara online ke Database Guru!</span>`;
+                }
+            } catch (err) {
+                console.error("Firestore Save Error:", err);
+                window.storeLocalResult(resultObj);
+                if (syncEl) {
+                    syncEl.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-amber-600"></i><span>Selesai. Tersimpan secara lokal.</span>`;
+                }
+            }
+        };
+
+        // Realtime Subscription for Admin Table
+        window.subscribeAdminData = function() {
+            if (!db || !currentUser) {
+                window.renderAdminTableFromLocal();
+                return;
+            }
+
+            try {
+                // Rule 1 & Rule 2: simple collection query without complex filters
+                const colRef = collection(db, 'artifacts', appId, 'public', 'data', 'student_quiz_results');
+                onSnapshot(colRef, (snapshot) => {
+                    const records = [];
+                    snapshot.forEach(doc => {
+                        records.push({ id: doc.id, ...doc.data() });
+                    });
+                    
+                    // Sort in memory (Rule 2)
+                    records.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+                    window.allAdminRecords = records;
+                    window.renderAdminTable(records);
+                }, (error) => {
+                    console.error("Snapshot error:", error);
+                    window.renderAdminTableFromLocal();
+                });
+            } catch (e) {
+                console.error("Admin listener error:", e);
+                window.renderAdminTableFromLocal();
+            }
+        };
+    </script>
+
+    <script>
+        
+        // 5 Analytical Exposition Passages (B2 Level)
+        const PASSAGES = {
+            p1: {
+                title: "The Critical Role of AI in Secondary Education",
+                badge: "Teks 1 (Soal 1 - 4)",
+                content: `
+                    <p class="font-semibold text-slate-800">Artificial Intelligence (AI) is rapidly restructuring the landscape of modern education. Integrating AI-powered adaptive platforms into high school curricula is no longer merely an innovative luxury; it has become an educational imperative.</p>
+                    <p>First and foremost, AI enables personalized learning trajectories tailored to individual student speeds and comprehension levels. Traditional classroom structures often force educators to teach at a median pace, leaving advanced students unengaged and struggling students behind. AI algorithms analyze individual error patterns in real-time, delivering immediate scaffolding or advanced problem sets accordingly.</p>
+                    <p>Furthermore, automated diagnostic tools substantially reduce administrative friction for teachers. By streamlining routine grading and performance diagnostics, teachers gain critical bandwidth to conduct targeted, high-touch mentoring sessions with students requiring extra assistance.</p>
+                    <p>In conclusion, incorporating AI into secondary schooling equips teenagers with indispensable digital literacy and critical thinking skills required in an increasingly automated global economy. School leadership must therefore prioritize AI integration into daily pedagogical frameworks.</p>
+                `
+            },
+            p2: {
+                title: "Urban Green Spaces as a Mental Health Imperative",
+                badge: "Teks 2 (Soal 5 - 8)",
+                content: `
+                    <p class="font-semibold text-slate-800">Rapid urban expansion frequently treat public parks as secondary aesthetic additions. However, accessible urban green spaces represent essential public health infrastructure that directly safeguards psychological resilience.</p>
+                    <p>Primarily, immersion in natural environments lowers human physiological stress markers. Empirical studies indicate that spending time in tree-canopied areas reduces cortisol concentrations and stabilizes heart rate variability among urban residents routinely subjected to high sensory overstimulation.</p>
+                    <p>Moreover, public green zones foster crucial social cohesion. In densely populated cities where social isolation is widespread, parks offer neutral, accessible grounds for communal gatherings, physical exercise, and recreational interaction, thereby reinforcing neighborhood support networks.</p>
+                    <p>Consequently, municipal authorities must treat green urban planning not as a secondary luxury, but as a mandatory health strategy to bolster urban mental well-being against chronic burnout.</p>
+                `
+            },
+            p3: {
+                title: "The Economic and Ecological Mandate of Renewable Energy",
+                badge: "Teks 3 (Soal 9 - 12)",
+                content: `
+                    <p class="font-semibold text-slate-800">The global transition from fossil fuels toward renewable sources such as solar and wind power is a non-negotiable prerequisite for ecological survival and sustained economic security.</p>
+                    <p>To begin with, renewable power directly mitigates the catastrophic impacts of carbon emission spikes. Continued reliance on coal and natural gas accelerates global climatic instability, resulting in severe drought cycles and volatile weather events that severely disrupt agricultural supply chains worldwide.</p>
+                    <p>Additionally, clean energy infrastructure drives robust, non-outsourceable local job creation. Unlike fossil fuel extraction, which relies on capital-intensive mega-corporations, solar installation and wind grid maintenance generate sustainable regional employment spanning engineering, technical assembly, and local maintenance operations.</p>
+                    <p>Therefore, governments must urgently shift subsidies away from fossil fuel conglomerates toward green infrastructure initiatives to guarantee sustainable prosperity.</p>
+                `
+            },
+            p4: {
+                title: "Why Financial Literacy Must Be Mandatory in High School",
+                badge: "Teks 4 (Soal 13 - 16)",
+                content: `
+                    <p class="font-semibold text-slate-800">Despite navigating an increasingly complex digital financial environment, high school students routinely graduate without basic practical financial management competencies. Introducing mandatory financial literacy courses in high schools is vital for long-term economic stability.</p>
+                    <p>Firstly, early exposure to concepts like compound interest, budget allocation, and credit management shields young adults from falling into predatory debt traps. With the proliferation of instant credit cards and digital 'buy-now-pay-later' services, unprepared teenagers easily accumulate high-interest liabilities.</p>
+                    <p>Secondly, financial education fosters healthy investment mindsets early in adulthood. Understanding how capital accumulates over time encourages responsible saving habits rather than impulse purchasing behaviors driven by aggressive social media marketing.</p>
+                    <p>In summary, teaching financial mechanics during high school empowers teenagers with indispensable economic autonomy. Educational boards should formally embed financial literacy into core national curricula.</p>
+                `
+            },
+            p5: {
+                title: "The Necessity of Flexible Remote Work Models",
+                badge: "Teks 5 (Soal 17 - 20)",
+                content: `
+                    <p class="font-semibold text-slate-800">The shift toward hybrid and remote employment options has redefined workplace culture. Rather than viewing remote work as a temporary crisis measure, modern organizations should adopt flexible work models as a permanent operational standard.</p>
+                    <p>Initially, removing daily suburban commutes drastically improves worker health and carbon footprints. Commuting consumes hundreds of uncompensated hours annually, elevating stress levels while contributing significantly to daily urban vehicular emissions.</p>
+                    <p>Furthermore, schedule flexibility boosts overall employee productivity and morale. Workers granted autonomy over their schedule experience reduced burnout and report higher deep-work concentration away from constant office interruptions.</p>
+                    <p>Ultimately, adopting remote arrangements allows firms to hire diverse global talent regardless of geography. Transitioning to hybrid structures represents a modern, human-centered evolution of the labor ecosystem.</p>
+                `
+            }
+        };
+
+        // 20 Questions (Covering the 3 required formats)
+        // Type 1: Single Choice (5 options, 1 correct)
+        // Type 2: Complex Choice (5 options, 3 correct)
+        // Type 3: Statement True/False (3 statements per item)
+        const QUESTIONS = [
+            // --- TEXT 1 (Q1 - Q4) ---
+            {
+                id: 1,
+                passageId: 'p1',
+                type: 'type1', // PG
+                typeLabel: 'Pilihan Ganda (1 Jawaban Benar)',
+                prompt: "What is the primary thesis advocated by the author in Text 1?",
+                options: [
+                    "AI tools should completely replace human teachers in high school classrooms.",
+                    "Integrating AI into high school education is a necessary imperative for modern learning.",
+                    "Traditional classroom median paces are superior to algorithmic learning.",
+                    "AI technology should only be reserved for advanced computer science students.",
+                    "High schools must limit digital device usage to reduce distraction."
+                ],
+                correct: 1, // index 1
+                explanation: "The text states in paragraph 1 that integrating AI-powered adaptive platforms into high school curricula has become an educational imperative."
+            },
+            {
+                id: 2,
+                passageId: 'p1',
+                type: 'type1', // PG
+                typeLabel: 'Pilihan Ganda (1 Jawaban Benar)',
+                prompt: "According to the second argument, how do automated diagnostic tools benefit teachers?",
+                options: [
+                    "By replacing the need for teacher mentoring sessions.",
+                    "By forcing teachers to follow a single standardized teaching pace.",
+                    "By automating administrative friction and grading, freeing up time for high-touch mentoring.",
+                    "By eliminating student error patterns entirely during exams.",
+                    "By generating automatic financial rewards for school administrators."
+                ],
+                correct: 2,
+                explanation: "Paragraph 3 explains that automated diagnostic tools streamline routine grading, giving teachers bandwidth for targeted mentoring."
+            },
+            {
+                id: 3,
+                passageId: 'p1',
+                type: 'type2', // PG Kompleks (Select 3 out of 5)
+                typeLabel: 'Pilihan Ganda Kompleks (Pilih 3 Jawaban Benar)',
+                prompt: "Which THREE statements represent benefits of AI integration mentioned in Text 1? (Pilih 3 dari 5 pilihan):",
+                options: [
+                    "AI provides personalized learning paths matching individual student comprehension.",
+                    "AI algorithm completely eliminates the necessity for human critical thinking.",
+                    "AI diagnostic tools reduce administrative workloads and grading friction for educators.",
+                    "AI integration equips students with required digital literacy for automated workforce dynamics.",
+                    "AI ensures all students receive identical homework regardless of their individual learning pace."
+                ],
+                correct: [0, 2, 3], // Indexes of 3 correct
+                explanation: "Text 1 highlights personalized learning paths (Option 1), reduced administrative friction for teachers (Option 3), and equipping students with digital skills for the automated workforce (Option 4)."
+            },
+            {
+                id: 4,
+                passageId: 'p1',
+                type: 'type3', // Pernyataan Benar/Salah (3 statements)
+                typeLabel: 'Analisis Pernyataan (Benar / Salah)',
+                prompt: "Berdasarkan Teks 1, tentukan apakah pernyataan berikut BENAR atau SALAH:",
+                statements: [
+                    { text: "AI replaces the absolute necessity for human educators in secondary schools.", answer: false },
+                    { text: "Traditional non-AI classroom setups often struggle with maintaining an ideal learning pace for both struggling and advanced students.", answer: true },
+                    { text: "The author concludes that school leaders should prioritize incorporating AI into pedagogical frameworks.", answer: true }
+                ],
+                explanation: "Statement 1 is FALSE (AI assists but does not replace teachers). Statement 2 is TRUE (paragraph 2 notes traditional median paces leave advanced students unengaged). Statement 3 is TRUE (reiteration in paragraph 4)."
+            },
+
+            // --- TEXT 2 (Q5 - Q8) ---
+            {
+                id: 5,
+                passageId: 'p2',
+                type: 'type1', // PG
+                typeLabel: 'Pilihan Ganda (1 Jawaban Benar)',
+                prompt: "What is the main argument regarding urban green spaces presented in Text 2?",
+                options: [
+                    "Parks are purely decorative elements that increase municipal expenses.",
+                    "Urban parks are mandatory public health infrastructure that protects psychological resilience.",
+                    "City residents prefer noise pollution over public park environments.",
+                    "Green urban planning should only be funded by private real estate developers.",
+                    "Urban parks decrease physical activity among densely populated neighborhoods."
+                ],
+                correct: 1,
+                explanation: "Paragraph 1 clearly states that accessible urban green spaces represent essential public health infrastructure that directly safeguards psychological resilience."
+            },
+            {
+                id: 6,
+                passageId: 'p2',
+                type: 'type2', // PG Kompleks
+                typeLabel: 'Pilihan Ganda Kompleks (Pilih 3 Jawaban Benar)',
+                prompt: "Select THREE physiological or psychological benefits of urban parks mentioned in Text 2:",
+                options: [
+                    "Lowering human physiological stress markers like cortisol concentrations.",
+                    "Stabilizing heart rate variability among residents exposed to urban sensory stimulation.",
+                    "Increasing urban vehicular emissions and industrial productivity.",
+                    "Fostering social cohesion and neighborhood support networks in densely populated cities.",
+                    "Requiring residents to pay high mandatory subscription fees for park entry."
+                ],
+                correct: [0, 1, 3],
+                explanation: "The text highlights lower cortisol levels (0), stabilized heart rate variability (1), and reinforced social cohesion (3)."
+            },
+            {
+                id: 7,
+                passageId: 'p2',
+                type: 'type3', // Benar/Salah
+                typeLabel: 'Analisis Pernyataan (Benar / Salah)',
+                prompt: "Berdasarkan Teks 2, tentukan apakah setiap pernyataan di bawah ini BENAR atau SALAH:",
+                statements: [
+                    { text: "Empirical studies show natural environments reduce physiological stress indicators like cortisol.", answer: true },
+                    { text: "The text suggests that social isolation in crowded cities cannot be mitigated by urban parks.", answer: false },
+                    { text: "Municipal authorities are urged to treat green urban planning as a mandatory health strategy.", answer: true }
+                ],
+                explanation: "Statement 1 is TRUE (para 2). Statement 2 is FALSE (parks foster social cohesion to combat isolation). Statement 3 is TRUE (reiteration in para 4)."
+            },
+            {
+                id: 8,
+                passageId: 'p2',
+                type: 'type1', // PG
+                typeLabel: 'Pilihan Ganda (1 Jawaban Benar)',
+                prompt: "What does the word 'cohesion' in paragraph 3 most nearly mean in this context?",
+                options: [
+                    "Disconnection and solitude",
+                    "Unity, connection, and mutual support",
+                    "Physical friction and disagreement",
+                    "Financial transaction and commerce",
+                    "Architectural expansion"
+                ],
+                correct: 1,
+                explanation: "In paragraph 3, 'social cohesion' refers to social unity and community connection."
+            },
+
+            // --- TEXT 3 (Q9 - Q12) ---
+            {
+                id: 9,
+                passageId: 'p3',
+                type: 'type1', // PG
+                typeLabel: 'Pilihan Ganda (1 Jawaban Benar)',
+                prompt: "What is the writer's underlying position on clean energy transition in Text 3?",
+                options: [
+                    "Transitioning to renewable energy is optional and economically risky.",
+                    "Fossil fuels are more reliable than solar and wind energy in the long run.",
+                    "Shifting to renewable energy is essential for environmental survival and sustainable economic security.",
+                    "Government subsidies should be doubled for coal and oil conglomerates.",
+                    "Clean energy infrastructure decreases local job availability."
+                ],
+                correct: 2,
+                explanation: "Paragraph 1 posits that transitioning from fossil fuels to renewables is a non-negotiable prerequisite for ecological survival and sustained economic security."
+            },
+            {
+                id: 10,
+                passageId: 'p3',
+                type: 'type2', // PG Kompleks
+                typeLabel: 'Pilihan Ganda Kompleks (Pilih 3 Jawaban Benar)',
+                prompt: "Which THREE arguments support the renewable energy transition in Text 3? (Select 3 options):",
+                options: [
+                    "Mitigating carbon emissions that cause climatic instability and agricultural disruption.",
+                    "Generating non-outsourceable local job opportunities in engineering and assembly.",
+                    "Increasing total global dependence on volatile foreign oil imports.",
+                    "Providing sustainable regional employment in maintenance operations.",
+                    "Accelerating severe drought cycles across agricultural supply chains."
+                ],
+                correct: [0, 1, 3],
+                explanation: "The text argues that renewables reduce carbon emissions (0), create non-outsourceable local jobs (1), and offer regional maintenance employment (3)."
+            },
+            {
+                id: 11,
+                passageId: 'p3',
+                type: 'type3', // Benar/Salah
+                typeLabel: 'Analisis Pernyataan (Benar / Salah)',
+                prompt: "Berdasarkan Teks 3, tentukan nilai kebenaran dari pernyataan-pernyataan berikut:",
+                statements: [
+                    { text: "Reliance on fossil fuels contributes directly to climatic instability and agricultural supply disruptions.", answer: true },
+                    { text: "Renewable energy infrastructure operations can easily be outsourced entirely to foreign corporations.", answer: false },
+                    { text: "The author demands that government subsidies be redirected from fossil fuels to green initiatives.", answer: true }
+                ],
+                explanation: "Statement 1 is TRUE (para 2). Statement 2 is FALSE (para 3 states clean energy creates non-outsourceable local jobs). Statement 3 is TRUE (reiteration in para 4)."
+            },
+            {
+                id: 12,
+                passageId: 'p3',
+                type: 'type1', // PG
+                typeLabel: 'Pilihan Ganda (1 Jawaban Benar)',
+                prompt: "The word 'mitigates' in paragraph 2 is closest in meaning to:",
+                options: [
+                    "Exacerbates or worsens",
+                    "Alleviates or reduces the severity of",
+                    "Ignores or overlooks",
+                    "Finances or funds",
+                    "Duplicates"
+                ],
+                correct: 1,
+                explanation: "To 'mitigate' means to reduce or alleviate the intensity/severity of harmful carbon emissions."
+            },
+
+            // --- TEXT 4 (Q13 - Q16) ---
+            {
+                id: 13,
+                passageId: 'p4',
+                type: 'type1', // PG
+                typeLabel: 'Pilihan Ganda (1 Jawaban Benar)',
+                prompt: "Why does the author advocate making financial literacy mandatory in high school?",
+                options: [
+                    "To force all high school graduates to become professional accountants.",
+                    "To protect young adults from predatory debt traps and foster economic autonomy.",
+                    "To encourage teenagers to apply for multiple high-interest credit cards.",
+                    "To ban digital payment methods across high school campuses.",
+                    "To replace academic mathematics with marketing courses."
+                ],
+                correct: 1,
+                explanation: "Paragraph 2 & 4 emphasize shielding young adults from predatory debt and empowering teenagers with economic autonomy."
+            },
+            {
+                id: 14,
+                passageId: 'p4',
+                type: 'type2', // PG Kompleks
+                typeLabel: 'Pilihan Ganda Kompleks (Pilih 3 Jawaban Benar)',
+                prompt: "Select THREE key financial literacy concepts recommended in Text 4:",
+                options: [
+                    "Understanding compound interest and budget allocation mechanics.",
+                    "Navigating credit management to avoid predatory liabilities.",
+                    "Developing investment mindsets to encourage responsible long-term saving habits.",
+                    "Maximizing instant impulse purchases through digital buy-now-pay-later tools.",
+                    "Relying exclusively on high-interest credit debt during early adulthood."
+                ],
+                correct: [0, 1, 2],
+                explanation: "Text 4 recommends learning compound interest & budgeting (0), credit management (1), and investment mindsets for saving (2)."
+            },
+            {
+                id: 15,
+                passageId: 'p4',
+                type: 'type3', // Benar/Salah
+                typeLabel: 'Analisis Pernyataan (Benar / Salah)',
+                prompt: "Berdasarkan Teks 4, tentukan apakah pernyataan berikut BENAR atau SALAH:",
+                statements: [
+                    { text: "Most high school graduates currently possess advanced financial competencies when entering adulthood.", answer: false },
+                    { text: "Digital 'buy-now-pay-later' services can trap unprepared teenagers in high-interest liabilities.", answer: true },
+                    { text: "Educational boards are urged to embed financial education formally into core national curricula.", answer: true }
+                ],
+                explanation: "Statement 1 is FALSE (para 1 states students routinely graduate without basic competencies). Statement 2 is TRUE (para 2). Statement 3 is TRUE (para 4)."
+            },
+            {
+                id: 16,
+                passageId: 'p4',
+                type: 'type1', // PG
+                typeLabel: 'Pilihan Ganda (1 Jawaban Benar)',
+                prompt: "What can be inferred about aggressive social media marketing from paragraph 3?",
+                options: [
+                    "It promotes long-term capital accumulation.",
+                    "It drives impulsive purchasing behaviors that undermine saving habits.",
+                    "It offers free financial literacy courses to teenagers.",
+                    "It reduces credit card usage among high school students.",
+                    "It teaches students how to calculate interest rates."
+                ],
+                correct: 1,
+                explanation: "Paragraph 3 notes that social media marketing drives impulse purchasing behaviors rather than responsible saving habits."
+            },
+
+            // --- TEXT 5 (Q17 - Q20) ---
+            {
+                id: 17,
+                passageId: 'p5',
+                type: 'type1', // PG
+                typeLabel: 'Pilihan Ganda (1 Jawaban Benar)',
+                prompt: "What is the central thesis regarding remote work in Text 5?",
+                options: [
+                    "Remote work was a temporary crisis measure that should now be abandoned.",
+                    "Flexible remote work models should become a permanent, human-centered operational standard.",
+                    "Employees are significantly less productive when working away from the office.",
+                    "Companies should force all employees to move closer to office buildings.",
+                    "Remote work increases urban vehicular carbon emissions."
+                ],
+                correct: 1,
+                explanation: "Paragraph 1 posits that organizations should adopt flexible remote work models as a permanent operational standard."
+            },
+
+            {
+                id: 18,
+                passageId: 'p5',
+                type: 'type2', // PG Kompleks
+                typeLabel: 'Pilihan Ganda Kompleks (Pilih 3 Jawaban Benar)',
+                prompt: "Select THREE advantages of flexible remote work models outlined in Text 5:",
+                options: [
+                    "Eliminating daily suburban commutes, which reduces worker stress and carbon emissions.",
+                    "Boosting worker morale and deep-work concentration away from office distractions.",
+                    "Enabling firms to recruit talent globally without geographical restrictions.",
+                    "Increasing uncompensated commute hours for suburban residents.",
+                    "Mandating strict 12-hour continuous office monitoring."
+                ],
+                correct: [0, 1, 2],
+                explanation: "Text 5 details reduced commute stress/emissions (0), improved concentration/morale (1), and global talent recruitment (2)."
+            },
+
+            {
+                id: 19,
+                passageId: 'p5',
+                type: 'type3', // Benar/Salah
+                typeLabel: 'Analisis Pernyataan (Benar / Salah)',
+                prompt: "Berdasarkan Teks 5, tentukan apakah setiap pernyataan berikut BENAR atau SALAH:",
+                statements: [
+                    { text: "Daily suburban commuting consumes hundreds of uncompensated hours and raises stress levels.", answer: true },
+                    { text: "Schedule autonomy leads to higher employee burnout according to the author.", answer: false },
+                    { text: "Remote work models allow companies to expand their talent search beyond local geographical zones.", answer: true }
+                ],
+                explanation: "Statement 1 is TRUE (para 2). Statement 2 is FALSE (para 3 states autonomy reduces burnout). Statement 3 is TRUE (para 4)."
+            },
+
+            {
+                id: 20,
+                passageId: 'p5',
+                type: 'type2', // PG Kompleks
+                typeLabel: 'Pilihan Ganda Kompleks (Pilih 3 Jawaban Benar)',
+                prompt: "Which THREE of the following statements align with the arguments in Text 5?",
+                options: [
+                    "Hybrid workplace models represent a modern evolution of the labor ecosystem.",
+                    "Constant office interruptions can hinder deep-work concentration.",
+                    "Vehicular emissions can be reduced by minimizing daily suburban workplace commuting.",
+                    "Remote working models completely eliminate the need for global corporate talent.",
+                    "Employees working remotely produce zero output compared to office-bound workers."
+                ],
+                correct: [0, 1, 2],
+                explanation: "Aligning statements are modern evolution of labor (0), office interruptions hindering deep work (1), and reduced emissions via less commuting (2)."
+            }
+        ];
+
+        let state = {
+            studentName: '',
+            studentClass: 'XI-1',
+            currentQuestionIndex: 0,
+            answers: {}, // map questionId -> user answer format
+            timerSeconds: 0,
+            timerInterval: null,
+            isCompleted: false
+        };
+
+        let allAdminRecords = [];
+
+        // Local Storage Backup helper
+        window.storeLocalResult = function(resObj) {
+            try {
+                let localData = JSON.parse(localStorage.getItem('quiz_results_backup') || '[]');
+                localData.push(resObj);
+                localStorage.setItem('quiz_results_backup', JSON.stringify(localData));
+            } catch (e) {
+                console.warn(e);
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("App loaded. Questions initialized:", QUESTIONS.length);
+        });
+
+        // Start Quiz Action
+        window.startQuiz = function() {
+            const namaInput = document.getElementById('input-nama').value.trim();
+            const kelasInput = document.querySelector('input[name="kelas"]:checked').value;
+
+            if (!namaInput) return;
+
+            state.studentName = namaInput;
+            state.studentClass = kelasInput;
+            state.currentQuestionIndex = 0;
+            state.answers = {};
+            state.timerSeconds = 0;
+            state.isCompleted = false;
+
+            // UI updates
+            document.getElementById('quiz-student-info').innerText = `${state.studentName} (${state.studentClass})`;
+            
+            // Switch views
+            document.getElementById('screen-login').classList.add('hidden');
+            document.getElementById('screen-quiz').classList.remove('hidden');
+
+            // Start Timer
+            if (state.timerInterval) clearInterval(state.timerInterval);
+            state.timerInterval = setInterval(() => {
+                state.timerSeconds++;
+                document.getElementById('quiz-timer').innerText = formatTimer(state.timerSeconds);
+            }, 1000);
+
+            // Render First Question
+            renderQuestion(0);
+        };
+
+        // Format Seconds into MM:SS
+        function formatTimer(totalSec) {
+            const mins = Math.floor(totalSec / 60);
+            const secs = totalSec % 60;
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function renderQuestion(idx) {
+            if (idx < 0 || idx >= QUESTIONS.length) return;
+            state.currentQuestionIndex = idx;
+
+            const q = QUESTIONS[idx];
+            const passage = PASSAGES[q.passageId];
+
+            // Progress text and bar
+            document.getElementById('quiz-progress-text').innerText = `Soal ${idx + 1} dari ${QUESTIONS.length}`;
+            const pct = ((idx + 1) / QUESTIONS.length) * 100;
+            document.getElementById('quiz-progress-bar').style.width = `${pct}%`;
+
+            // Passage Render
+            document.getElementById('text-title-header').innerText = passage.title;
+            document.getElementById('text-badge').innerText = passage.badge;
+            document.getElementById('passage-container').innerHTML = passage.content;
+
+            // Question Details
+            document.getElementById('question-type-badge').innerText = q.typeLabel;
+            document.getElementById('question-number-badge').innerText = q.id;
+            document.getElementById('question-prompt').innerText = q.prompt;
+
+            // Options rendering based on type
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const currentAns = state.answers[q.id];
+
+            if (q.type === 'type1') {
+                // Type 1: Single Choice Options
+                q.options.forEach((opt, oIdx) => {
+                    const isSelected = currentAns === oIdx;
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.onclick = () => selectType1Answer(q.id, oIdx);
+                    btn.className = `w-full text-left p-3.5 rounded-xl border text-xs font-medium transition-all flex items-center justify-between ${
+                        isSelected 
+                            ? 'bg-indigo-50 border-indigo-600 text-indigo-900 font-semibold ring-2 ring-indigo-500/20' 
+                            : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
+                    }`;
+
+                    const letters = ['A', 'B', 'C', 'D', 'E'];
+                    btn.innerHTML = `
+                        <div class="flex items-center space-x-3 pr-2">
+                            <span class="w-6 h-6 rounded-lg font-bold text-[11px] flex items-center justify-center ${
+                                isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600'
+                            }">${letters[oIdx]}</span>
+                            <span class="flex-1 leading-snug">${opt}</span>
+                        </div>
+                        <div>
+                            <i class="${isSelected ? 'fa-solid fa-circle-check text-indigo-600 text-lg' : 'fa-regular fa-circle text-slate-300 text-lg'}"></i>
+                        </div>
+                    `;
+                    optionsContainer.appendChild(btn);
+                });
+
+            } else if (q.type === 'type2') {
+                // Type 2: Complex Choice Options (Checkboxes - select 3)
+                const selectedArr = Array.isArray(currentAns) ? currentAns : [];
+                
+                const countNotice = document.createElement('div');
+                countNotice.className = "text-[11px] font-bold text-indigo-700 mb-2 bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100 flex items-center justify-between";
+                countNotice.innerHTML = `
+                    <span><i class="fa-solid fa-list-check mr-1"></i> Pilih tepat 3 jawaban:</span>
+                    <span class="font-mono bg-indigo-200 text-indigo-900 px-2 py-0.5 rounded text-[10px]">${selectedArr.length}/3 Terpilih</span>
+                `;
+                optionsContainer.appendChild(countNotice);
+
+                q.options.forEach((opt, oIdx) => {
+                    const isChecked = selectedArr.includes(oIdx);
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.onclick = () => toggleType2Answer(q.id, oIdx);
+                    btn.className = `w-full text-left p-3.5 rounded-xl border text-xs font-medium transition-all flex items-center justify-between ${
+                        isChecked 
+                            ? 'bg-indigo-50 border-indigo-600 text-indigo-900 font-semibold ring-2 ring-indigo-500/20' 
+                            : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
+                    }`;
+
+                    const letters = ['A', 'B', 'C', 'D', 'E'];
+                    btn.innerHTML = `
+                        <div class="flex items-center space-x-3 pr-2">
+                            <span class="w-6 h-6 rounded-lg font-bold text-[11px] flex items-center justify-center ${
+                                isChecked ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600'
+                            }">${letters[oIdx]}</span>
+                            <span class="flex-1 leading-snug">${opt}</span>
+                        </div>
+                        <div>
+                            <i class="${isChecked ? 'fa-solid fa-square-check text-indigo-600 text-lg' : 'fa-regular fa-square text-slate-300 text-lg'}"></i>
+                        </div>
+                    `;
+                    optionsContainer.appendChild(btn);
+                });
+
+            } else if (q.type === 'type3') {
+                // Type 3: Statement Analysis (3 Statements: Benar / Salah)
+                const ansObj = (typeof currentAns === 'object' && currentAns !== null) ? currentAns : {};
+
+                q.statements.forEach((stmt, sIdx) => {
+                    const stmtVal = ansObj[sIdx]; // boolean or undefined
+
+                    const card = document.createElement('div');
+                    card.className = "p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-2.5";
+
+                    card.innerHTML = `
+                        <div class="text-xs font-medium text-slate-800 leading-snug">
+                            <span class="font-bold text-indigo-600 mr-1">#${sIdx + 1}</span> ${stmt.text}
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-1">
+                            <button type="button" onclick="selectType3Answer(${q.id}, ${sIdx}, true)" class="py-2 px-3 rounded-lg border text-xs font-bold transition-all flex items-center justify-center space-x-1.5 ${
+                                stmtVal === true 
+                                    ? 'bg-emerald-600 text-white border-emerald-700 shadow-sm' 
+                                    : 'bg-white text-slate-600 border-slate-200 hover:bg-emerald-50'
+                            }">
+                                <i class="fa-solid fa-circle-check text-xs"></i>
+                                <span>BENAR</span>
+                            </button>
+
+                            <button type="button" onclick="selectType3Answer(${q.id}, ${sIdx}, false)" class="py-2 px-3 rounded-lg border text-xs font-bold transition-all flex items-center justify-center space-x-1.5 ${
+                                stmtVal === false 
+                                    ? 'bg-rose-600 text-white border-rose-700 shadow-sm' 
+                                    : 'bg-white text-slate-600 border-slate-200 hover:bg-rose-50'
+                            }">
+                                <i class="fa-solid fa-circle-xmark text-xs"></i>
+                                <span>SALAH</span>
+                            </button>
+                        </div>
+                    `;
+                    optionsContainer.appendChild(card);
+                });
+            }
+
+            // Update Navigation Buttons state
+            document.getElementById('btn-prev').disabled = idx === 0;
+
+            if (idx === QUESTIONS.length - 1) {
+                document.getElementById('btn-next').classList.add('hidden');
+                document.getElementById('btn-submit-quiz').classList.remove('hidden');
+            } else {
+                document.getElementById('btn-next').classList.remove('hidden');
+                document.getElementById('btn-submit-quiz').classList.add('hidden');
+            }
+        }
+
+        // Selection Handlers
+        window.selectType1Answer = function(qId, oIdx) {
+            state.answers[qId] = oIdx;
+            renderQuestion(state.currentQuestionIndex);
+        };
+
+        window.toggleType2Answer = function(qId, oIdx) {
+            let currentArr = Array.isArray(state.answers[qId]) ? [...state.answers[qId]] : [];
+            const pos = currentArr.indexOf(oIdx);
+
+            if (pos >= 0) {
+                currentArr.splice(pos, 1);
+            } else {
+                if (currentArr.length >= 3) {
+                    // Maximum 3 options
+                    currentArr.shift(); // Remove first or limit
+                }
+                currentArr.push(oIdx);
+            }
+
+            state.answers[qId] = currentArr;
+            renderQuestion(state.currentQuestionIndex);
+        };
+
+        window.selectType3Answer = function(qId, sIdx, val) {
+            if (typeof state.answers[qId] !== 'object' || state.answers[qId] === null || Array.isArray(state.answers[qId])) {
+                state.answers[qId] = {};
+            }
+            state.answers[qId][sIdx] = val;
+            renderQuestion(state.currentQuestionIndex);
+        };
+
+        // Navigation Next / Prev
+        window.navigateQuestion = function(dir) {
+            const target = state.currentQuestionIndex + dir;
+            if (target >= 0 && target < QUESTIONS.length) {
+                renderQuestion(target);
+            }
+        };
+
+        window.openQuestionPalette = function() {
+            const grid = document.getElementById('palette-grid');
+            grid.innerHTML = '';
+
+            QUESTIONS.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.onclick = () => {
+                    closeQuestionPalette();
+                    renderQuestion(idx);
+                };
+
+                const isAnswered = isQuestionAnswered(q);
+                const isActive = idx === state.currentQuestionIndex;
+
+                let bgClass = 'bg-slate-100 text-slate-700 border-slate-300';
+                if (isActive) {
+                    bgClass = 'bg-amber-400 text-slate-900 border-amber-500 font-extrabold ring-2 ring-amber-300';
+                } else if (isAnswered) {
+                    bgClass = 'bg-indigo-600 text-white border-indigo-700 font-bold';
+                }
+
+                btn.className = `h-10 rounded-xl border text-xs flex items-center justify-center transition-all ${bgClass}`;
+                btn.innerText = idx + 1;
+                grid.appendChild(btn);
+            });
+
+            document.getElementById('modal-palette').classList.remove('hidden');
+        };
+
+        window.closeQuestionPalette = function() {
+            document.getElementById('modal-palette').classList.add('hidden');
+        };
+
+        function isQuestionAnswered(q) {
+            const ans = state.answers[q.id];
+            if (ans === undefined || ans === null) return false;
+
+            if (q.type === 'type1') {
+                return typeof ans === 'number';
+            } else if (q.type === 'type2') {
+                return Array.isArray(ans) && ans.length === 3;
+            } else if (q.type === 'type3') {
+                return typeof ans === 'object' && Object.keys(ans).length === 3;
+            }
+            return false;
+        }
+
+        window.confirmSubmitQuiz = function() {
+            // Check unanswered
+            let unansweredCount = 0;
+            QUESTIONS.forEach(q => {
+                if (!isQuestionAnswered(q)) unansweredCount++;
+            });
+
+            if (unansweredCount > 0) {
+                const confirmRes = window.confirm(`Masih terdapat ${unansweredCount} soal yang belum dijawab lengkap! Apakah Anda yakin ingin mengumpulkan kuis sekarang?`);
+                if (!confirmRes) return;
+            }
+
+            finishQuiz();
+        };
+
+        function finishQuiz() {
+            if (state.timerInterval) clearInterval(state.timerInterval);
+            state.isCompleted = true;
+
+            // Score Evaluation Logic
+            let totalEarnedScore = 0;
+            let correctCount = 0;
+            let wrongCount = 0;
+
+            const reviewData = [];
+
+            QUESTIONS.forEach(q => {
+                const userAns = state.answers[q.id];
+                let isFullyCorrect = false;
+                let earnedPoints = 0;
+
+                if (q.type === 'type1') {
+                    if (userAns === q.correct) {
+                        isFullyCorrect = true;
+                        earnedPoints = 5; // 5 pts per question (20 x 5 = 100)
+                    }
+                } else if (q.type === 'type2') {
+                    if (Array.isArray(userAns)) {
+                        const correctSet = new Set(q.correct);
+                        const userSet = new Set(userAns);
+                        
+                        let matches = 0;
+                        userAns.forEach(val => {
+                            if (correctSet.has(val)) matches++;
+                        });
+
+                        if (matches === 3 && userAns.length === 3) {
+                            isFullyCorrect = true;
+                            earnedPoints = 5;
+                        } else if (matches === 2) {
+                            earnedPoints = 3;
+                        } else if (matches === 1) {
+                            earnedPoints = 1;
+                        }
+                    }
+                } else if (q.type === 'type3') {
+                    if (typeof userAns === 'object' && userAns !== null) {
+                        let matches = 0;
+                        q.statements.forEach((stmt, sIdx) => {
+                            if (userAns[sIdx] === stmt.answer) {
+                                matches++;
+                            }
+                        });
+
+                        if (matches === 3) {
+                            isFullyCorrect = true;
+                            earnedPoints = 5;
+                        } else if (matches === 2) {
+                            earnedPoints = 3;
+                        } else if (matches === 1) {
+                            earnedPoints = 1;
+                        }
+                    }
+                }
+
+                if (isFullyCorrect) {
+                    correctCount++;
+                } else {
+                    wrongCount++;
+                }
+
+                totalEarnedScore += earnedPoints;
+
+                reviewData.push({
+                    q: q,
+                    userAns: userAns,
+                    isFullyCorrect: isFullyCorrect,
+                    earnedPoints: earnedPoints
+                });
+            });
+
+            // Populate Results UI
+            document.getElementById('result-student-name').innerText = `${state.studentName} • Kelas ${state.studentClass}`;
+            document.getElementById('result-score-val').innerText = totalEarnedScore;
+            document.getElementById('result-correct-cnt').innerText = correctCount;
+            document.getElementById('result-wrong-cnt').innerText = wrongCount;
+            document.getElementById('result-duration-str').innerText = formatTimer(state.timerSeconds);
+
+            // Badge Evaluation
+            const evalBadge = document.getElementById('result-badge-eval');
+            if (totalEarnedScore >= 85) {
+                evalBadge.className = "mt-2 text-xs font-semibold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200";
+                evalBadge.innerText = "Luar Biasa! Penguasaan B2 Sangat Baik";
+            } else if (totalEarnedScore >= 70) {
+                evalBadge.className = "mt-2 text-xs font-semibold px-3 py-1 rounded-full bg-indigo-100 text-indigo-800 border border-indigo-200";
+                evalBadge.innerText = "Bagus! Memenuhi Standar Kompetensi";
+            } else {
+                evalBadge.className = "mt-2 text-xs font-semibold px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-200";
+                evalBadge.innerText = "Perlu Latihan Tambahan Teks Analitis";
+            }
+
+            // Build Review Items
+            renderReviewItems(reviewData);
+
+            // Switch Screen
+            document.getElementById('screen-quiz').classList.add('hidden');
+            document.getElementById('screen-result').classList.remove('hidden');
+
+            // Save to Firestore / Cloud
+            const resultObject = {
+                nama: state.studentName,
+                kelas: state.studentClass,
+                nilai: totalEarnedScore,
+                benar: correctCount,
+                salah: wrongCount,
+                durasiDetik: state.timerSeconds,
+                durasiFormatted: formatTimer(state.timerSeconds),
+                timestamp: new Date().toLocaleString('id-ID')
+            };
+
+            window.saveResultToFirestore(resultObject);
+        }
+
+        function renderReviewItems(reviewData) {
+            const container = document.getElementById('review-items-list');
+            container.innerHTML = '';
+
+            reviewData.forEach((item, idx) => {
+                const q = item.q;
+                const div = document.createElement('div');
+                div.className = `p-3.5 rounded-xl border text-xs space-y-2 ${
+                    item.isFullyCorrect ? 'bg-emerald-50/50 border-emerald-200' : 'bg-rose-50/50 border-rose-200'
+                }`;
+
+                let statusBadge = item.isFullyCorrect 
+                    ? `<span class="bg-emerald-600 text-white font-bold text-[10px] px-2 py-0.5 rounded">Sempurna (+${item.earnedPoints} poin)</span>`
+                    : `<span class="bg-rose-600 text-white font-bold text-[10px] px-2 py-0.5 rounded">Poin: ${item.earnedPoints}/5</span>`;
+
+                div.innerHTML = `
+                    <div class="flex items-center justify-between font-bold text-slate-800">
+                        <span>Soal #${idx + 1} (${q.typeLabel})</span>
+                        ${statusBadge}
+                    </div>
+                    <div class="font-medium text-slate-700">${q.prompt}</div>
+                    <div class="bg-white p-2.5 rounded-lg border border-slate-200 text-[11px] text-slate-600 space-y-1">
+                        <div class="font-semibold text-indigo-700"><i class="fa-solid fa-lightbulb mr-1"></i>Pembahasan:</div>
+                        <div>${q.explanation}</div>
+                    </div>
+                `;
+
+                container.appendChild(div);
+            });
+        }
+
+        window.toggleAnswerReview = function() {
+            const revCon = document.getElementById('answer-review-container');
+            revCon.classList.toggle('hidden');
+        };
+
+        window.resetToLogin = function() {
+            document.getElementById('screen-result').classList.add('hidden');
+            document.getElementById('answer-review-container').classList.add('hidden');
+            document.getElementById('input-nama').value = '';
+            document.getElementById('screen-login').classList.remove('hidden');
+        };
+
+        window.openAdminModal = function() {
+            document.getElementById('admin-auth-error').classList.add('hidden');
+            document.getElementById('modal-admin-login').classList.remove('hidden');
+        };
+
+        window.closeAdminModal = function() {
+            document.getElementById('modal-admin-login').classList.add('hidden');
+        };
+
+        window.handleAdminAuth = function() {
+            const u = document.getElementById('admin-username').value.trim();
+            const p = document.getElementById('admin-password').value.trim();
+
+            if (u === 'nastarabdullah' && p === 'skoijuara') {
+                window.closeAdminModal();
+                window.isAdminActive = true;
+
+                // Show Admin Dashboard
+                document.getElementById('screen-login').classList.add('hidden');
+                document.getElementById('screen-quiz').classList.add('hidden');
+                document.getElementById('screen-result').classList.add('hidden');
+                document.getElementById('screen-admin').classList.remove('hidden');
+
+                // Subscribe to realtime database
+                if (window.subscribeAdminData) {
+                    window.subscribeAdminData();
+                }
+            } else {
+                document.getElementById('admin-auth-error').classList.remove('hidden');
+            }
+        };
+
+        window.logoutAdmin = function() {
+            window.isAdminActive = false;
+            document.getElementById('screen-admin').classList.add('hidden');
+            document.getElementById('screen-login').classList.remove('hidden');
+        };
+
+        window.refreshAdminData = function() {
+            if (window.subscribeAdminData) {
+                window.subscribeAdminData();
+            }
+        };
+
+        window.renderAdminTableFromLocal = function() {
+            try {
+                const localData = JSON.parse(localStorage.getItem('quiz_results_backup') || '[]');
+                window.allAdminRecords = localData;
+                window.renderAdminTable(localData);
+            } catch (e) {
+                window.renderAdminTable([]);
+            }
+        };
+
+        window.renderAdminTable = function(records) {
+            const tbody = document.getElementById('admin-table-body');
+            const emptyEl = document.getElementById('admin-empty-state');
+            tbody.innerHTML = '';
+
+            if (!records || records.length === 0) {
+                emptyEl.classList.remove('hidden');
+                updateAdminStats([]);
+                return;
+            }
+            emptyEl.classList.add('hidden');
+
+            updateAdminStats(records);
+
+            records.forEach((rec, idx) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 border-b border-slate-100 transition-colors";
+
+                let scoreColor = "text-emerald-600 font-bold";
+                if (rec.nilai < 70) scoreColor = "text-rose-600 font-bold";
+                else if (rec.nilai < 85) scoreColor = "text-indigo-600 font-bold";
+
+                tr.innerHTML = `
+                    <td class="p-3 text-slate-400 font-mono text-[10px]">${idx + 1}</td>
+                    <td class="p-3 font-semibold text-slate-800">${rec.nama || 'Peserta'}</td>
+                    <td class="p-3">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 border border-slate-200 text-slate-700">${rec.kelas || '-'}</span>
+                    </td>
+                    <td class="p-3 ${scoreColor} font-mono text-sm">${rec.nilai}</td>
+                    <td class="p-3 text-slate-600">${rec.benar} / ${rec.salah}</td>
+                    <td class="p-3 font-mono text-slate-500">${rec.durasiFormatted || '00:00'}</td>
+                    <td class="p-3 text-slate-400 text-[10px]">${rec.timestamp || '-'}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        };
+
+        function updateAdminStats(records) {
+            document.getElementById('admin-stat-total').innerText = records.length;
+
+            if (records.length === 0) {
+                document.getElementById('admin-stat-avg').innerText = '0';
+                document.getElementById('admin-stat-high').innerText = '0';
+                document.getElementById('admin-stat-classes').innerText = '0 / 0';
+                return;
+            }
+
+            let totalScore = 0;
+            let maxScore = 0;
+            let xi1Count = 0;
+            let xi2Count = 0;
+
+            records.forEach(r => {
+                const val = Number(r.nilai) || 0;
+                totalScore += val;
+                if (val > maxScore) maxScore = val;
+
+                if (r.kelas === 'XI-1') xi1Count++;
+                else if (r.kelas === 'XI-2') xi2Count++;
+            });
+
+            const avg = Math.round(totalScore / records.length);
+            document.getElementById('admin-stat-avg').innerText = avg;
+            document.getElementById('admin-stat-high').innerText = maxScore;
+            document.getElementById('admin-stat-classes').innerText = `${xi1Count} / ${xi2Count}`;
+        }
+
+        window.filterAdminTable = function() {
+            const searchTerm = document.getElementById('admin-search-input').value.toLowerCase();
+            const selectedClass = document.getElementById('admin-filter-class').value;
+
+            const filtered = (window.allAdminRecords || []).filter(rec => {
+                const matchesName = (rec.nama || '').toLowerCase().includes(searchTerm);
+                const matchesClass = selectedClass === 'ALL' || rec.kelas === selectedClass;
+                return matchesName && matchesClass;
+            });
+
+            window.renderAdminTable(filtered);
+        };
+
+        window.exportToCSV = function() {
+            const records = window.allAdminRecords || [];
+            if (records.length === 0) {
+                alert("Tidak ada data untuk diunduh.");
+                return;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8,No,Nama,Kelas,Nilai,Benar,Salah,Durasi,Waktu Selesai\n";
+
+            records.forEach((r, idx) => {
+                const row = `"${idx + 1}","${r.nama || ''}","${r.kelas || ''}","${r.nilai || 0}","${r.benar || 0}","${r.salah || 0}","${r.durasiFormatted || ''}","${r.timestamp || ''}"`;
+                csvContent += row + "\n";
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `Rekap_Nilai_Kuis_B2_Analytical_Exposition.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+    </script>
+</body>
+</html>
